@@ -1,5 +1,6 @@
 package part02;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +21,13 @@ public class CollectionsBasics {
      * @return The maximum value in the list.
      */
     public int maximum(List<Integer> numbers) {
-        return 0; // TODO: implement this method
+        int max = numbers.get(0);
+        for (int num : numbers) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max; // TODO: implement this method
     }
 
     /**
@@ -30,7 +37,11 @@ public class CollectionsBasics {
      * @return The sum of all integers in the list.
      */
     public int sum(List<Integer> numbers) {
-        return 0; // TODO: implement this method
+        int total = 0;
+        for (int num : numbers) {
+            total += num;
+        }
+        return total; // TODO: implement this method
     }
 
     /**
@@ -47,7 +58,12 @@ public class CollectionsBasics {
      * @return A new list, where the numbers are multiplied by the given factor.
      */
     public List<Integer> multiply(List<Integer> numbers, int factor) {
-        return null; // TODO: implement this method
+        List<Integer> copy = new ArrayList<>();
+        for (int num : numbers) {
+            copy.add(num * factor);
+        }
+
+        return copy; // TODO: implement this method
     }
 
     /**
@@ -61,7 +77,14 @@ public class CollectionsBasics {
      * @return A list containing the numbers between the start and end values.
      */
     public List<Integer> range(int start, int end) {
-        return null; // TODO: implement this method
+        List<Integer> numbers = new ArrayList<>();
+        if (end <= start) {
+            return numbers;
+        }
+        for (int i = start; i < end; i++) {
+            numbers.add(i);
+        }
+        return numbers; // TODO: implement this method
     }
 
     /**
@@ -73,7 +96,11 @@ public class CollectionsBasics {
      * @return The concatenated string.
      */
     public String concatenateStrings(List<String> strings) {
-        return ""; // TODO: implement this method
+        String joined = "";
+        for (String str : strings) {
+            joined += str;
+        }
+        return joined; // TODO: implement this method
     }
 
     /**
@@ -85,7 +112,11 @@ public class CollectionsBasics {
      * @return A list containing the lengths of the strings in the input list.
      */
     public List<Integer> getLengths(List<String> strings) {
-        return null; // TODO: implement this method
+        List<Integer> lengths = new ArrayList<>();
+        for (String str : strings) {
+            lengths.add(str.length());
+        }
+        return lengths; // TODO: implement this method
     }
 
     /**
@@ -104,7 +135,14 @@ public class CollectionsBasics {
      */
     public List<Integer> indicesOf(String text, String substring) {
         // You can assume that the given substring is not empty.
+        List<Integer> index = new ArrayList<>();
+        for (int i = 0; i <= text.length() - substring.length(); i++) {
+            String current = text.substring(i, i + substring.length());
+            if (current.equals(substring)) {
+                index.add(i);
+            }
+        }
 
-        return null; // TODO: implement this method
+        return index; // TODO: implement this method
     }
 }
